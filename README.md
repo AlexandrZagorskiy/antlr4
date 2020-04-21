@@ -1,3 +1,12 @@
+## Запуск
+[Смотрим сюда](https://tomassetti.me/antlr-mega-tutorial/#setup-antlr)
+
+После установки
+```python
+antlr4 -Dlanguage=Python3 MathOp.g4 
+python test_gram.py tests/test*
+```
+
 ## Язык
 
 Язык, описывающий математические вычисления
