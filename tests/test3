@@ -1,0 +1,10 @@
+int _main() {
+    if (a > b) {
+        c = a
+    } else if (a = b) {
+        c = 0
+    } else {
+        c = b
+    }
+    return c
+}

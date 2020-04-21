@@ -1,0 +1,6 @@
+int _main() {
+    a = 13
+    b = 14
+    c = a+b
+    return c
+}
