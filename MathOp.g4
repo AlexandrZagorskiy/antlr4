@@ -4,7 +4,7 @@ program
     : subprog (NEWLINE subprog?)+ ;
 
 subprog
-    : type WHITESPACE FUNCNAME args (NEWLINE|WHITESPACE?) block;
+    : types WHITESPACE FUNCNAME args (NEWLINE|WHITESPACE?) block;
 
 args
     : '(' atom? (',' WHITESPACE? atom)* ')'
@@ -16,19 +16,19 @@ block
 
 command
     : expression               #printexpression
-    | if ((NEWLINE TAB | WHITESPACE) elif)* ((NEWLINE TAB | WHITESPACE) else)?                #ifelseBlock
+    | if_block ((NEWLINE TAB | WHITESPACE) elif_block)* ((NEWLINE TAB | WHITESPACE) else_block)?                #ifelseBlock
     | 'return' WHITESPACE expression #return
     ;
 
-if
+if_block
     : 'if' WHITESPACE expression WHITESPACE? block
     ;
 
-elif
-    : 'else' WHITESPACE if
+elif_block
+    : 'else' WHITESPACE if_block
     ;
 
-else
+else_block
     : 'else' WHITESPACE? block
     ;
 
@@ -40,7 +40,7 @@ expression
     | expression WHITESPACE? op=( '+' | '-' ) WHITESPACE? expression               #addExpression
     | expression WHITESPACE? op=( '>=' | '<=' | '>' | '<' ) WHITESPACE? expression #compExpression
     | expression WHITESPACE? op=( '==' | '!=' ) WHITESPACE? expression             #eqExpression
-    | ID WHITESPACE? '=' WHITESPACE? ('(' type ')')? expression   #assign
+    | ID WHITESPACE? '=' WHITESPACE? ('(' types ')')? expression   #assign
     | FUNCNAME args     #funcCall
     ;
 
@@ -54,7 +54,7 @@ number
     |   INT     #Int
     ;
 
-type
+types
     :   TYPE_INT
     |   TYPE_FLOAT
     ;
