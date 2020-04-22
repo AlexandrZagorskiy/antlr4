@@ -1,16 +1,22 @@
 import sys
 from antlr4 import *
 from MathOpLexer import MathOpLexer
+from MathOpListener import MathOpListener
 from MathOpParser import MathOpParser
 
 
 def main(argv):
-    input = FileStream(argv[1])
+    try:
+        input = FileStream(argv[1])
+    except IndexError:
+        input = FileStream("tests/test1")
     lexer = MathOpLexer(input)
     stream = CommonTokenStream(lexer)
     parser = MathOpParser(stream)
     tree = parser.program()
-    print(tree.toStringTree(recog=parser))
+    printer = MathOpListener()
+    walker = ParseTreeWalker()
+    walker.walk(printer, tree)
 
 
 if __name__ == '__main__':
