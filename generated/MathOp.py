@@ -1,13 +1,13 @@
-def _make_multiplier_of(i, x):
+def _ff(i, x):
     def _multiplier(n):
-        return x * n
+        return x / n
 
     a = _multiplier(i)
     return a
 
 
 def _main():
-    a = _make_multiplier_of(2, 3)
+    a = _ff(2, 3)
     return a
 
 

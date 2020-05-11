@@ -41,7 +41,7 @@ expression
     | expression WHITESPACE? op=( PLUS | MINUS ) WHITESPACE? expression               #addExpression
     | expression WHITESPACE? op=( BIGGEREQ | BIGGER | LESSEQ | LESS ) WHITESPACE? expression #compExpression
     | expression WHITESPACE? op=( EQUAL | NOTEQUAL ) WHITESPACE? expression             #eqExpression
-    | ID WHITESPACE? op=ASSIGN WHITESPACE? ('(' types ')')? expression   #assign
+    | ID WHITESPACE? op=ASSIGN WHITESPACE? ( types '(' expression ')' | expression)   #assign
     | FUNCNAME '(' atom? (',' WHITESPACE? atom)* ')'     #funcCall
     ;
 

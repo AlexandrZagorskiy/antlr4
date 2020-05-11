@@ -1,4 +1,6 @@
 int _main() {
+    a = 3
+    b = 5
     if (a > b) {
         c = a
     } elif (a == b) {
