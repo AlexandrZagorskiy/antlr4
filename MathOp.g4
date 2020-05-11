@@ -88,5 +88,5 @@ NEWLINE:    '\r'? '\n' ;
 ID:         [a-zA-Z]+ ;
 FUNCNAME:   ('_' [a-zA-Z] [a-zA-Z0-9]+)+ ;
 INT:        ([0]|[1-9][0-9]*) ;
-FLOAT:      INT ',' INT ;
+FLOAT:      INT '.' INT ;
 WHITESPACE: ' ' ;

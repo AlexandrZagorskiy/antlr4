@@ -9,7 +9,7 @@ def main(argv):
     try:
         input = FileStream(argv[1])
     except IndexError:
-        input = FileStream("tests/test1")
+        input = FileStream("tests/test2")
     lexer = MathOpLexer(input)
     stream = CommonTokenStream(lexer)
     parser = MathOpParser(stream)

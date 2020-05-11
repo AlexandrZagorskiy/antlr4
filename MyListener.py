@@ -20,7 +20,7 @@ class MathOpListener(ParseTreeListener):
 
     # Exit a parse tree produced by MathOpParser#program.
     def exitProgram(self, ctx: MathOpParser.ProgramContext):
-        self.pyCode += 'if __name__ == \'__main__\':\n    _main()\n'
+        self.pyCode += 'if __name__ == \'__main__\':\n    print(_main())\n'
         print("Good luck sir")
         self.pyFile = open("generated/MathOp.py", "w")
         self.pyFile.write(self.pyCode)
@@ -52,7 +52,7 @@ class MathOpListener(ParseTreeListener):
 
     # Enter a parse tree produced by MathOpParser#elif_block.
     def enterElif_block(self, ctx: MathOpParser.Elif_blockContext):
-        self.pyCode += "{}elif {}".format('    ' * self.tabCounter, ctx.if_block().expression().getText())
+        self.pyCode += "{}elif {}".format('    ' * self.tabCounter, ctx.expression().getText())
 
     # Exit a parse tree produced by MathOpParser#elif_block.
     def exitElif_block(self, ctx: MathOpParser.Elif_blockContext):
@@ -126,9 +126,11 @@ class MathOpListener(ParseTreeListener):
     # Enter a parse tree produced by MathOpParser#exprExpression.
     def enterExprExpression(self, ctx: MathOpParser.ExprExpressionContext):
         pass
+
     # Exit a parse tree produced by MathOpParser#exprExpression.
     def exitExprExpression(self, ctx: MathOpParser.ExprExpressionContext):
         pass
+
     # Enter a parse tree produced by MathOpParser#atomExpression.
     def enterAtomExpression(self, ctx: MathOpParser.AtomExpressionContext):
         pass

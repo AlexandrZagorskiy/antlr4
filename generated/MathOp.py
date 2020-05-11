@@ -1,5 +1,8 @@
 def _main():
-    return 13
+    a = 13
+    b = 14.3
+    c = a+b
+    return c
 
 
 if __name__ == '__main__':
