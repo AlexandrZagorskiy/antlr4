@@ -1,8 +1,14 @@
+def _make_multiplier_of(i, x):
+    def _multiplier(n):
+        return x * n
+
+    a = _multiplier(i)
+    return a
+
+
 def _main():
-    a = 13
-    b = 14.3
-    c = a+b
-    return c
+    a = _make_multiplier_of(2, 3)
+    return a
 
 
 if __name__ == '__main__':

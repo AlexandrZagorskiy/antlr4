@@ -1,0 +1,12 @@
+int _make_multiplier_of(i, x) {
+    int _multiplier(n) {
+        return x * n
+    }
+    a = _multiplier(i)
+    return a
+}
+
+int _main() {
+    a = _make_multiplier_of(2, 3)
+    return a
+}

@@ -28,6 +28,7 @@ block
 
 command
     : expression               #printexpression
+    | subprog                  #declfunc
     | if_block ((NEWLINE TAB | WHITESPACE) elif_block)* ((NEWLINE TAB | WHITESPACE) else_block)?                #ifelseBlock
     | RETURN WHITESPACE expression #return
     ;
